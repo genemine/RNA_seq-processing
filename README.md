@@ -5,11 +5,11 @@ RNA-seq是一种分析样本中的转录组，即所有基因的RNA表达情况�
 
 为了提高模型训练的效果，我们需要筛选掉低表达基因，并对筛选后的基因表达数据进行对数转换。以下是具体处理步骤以及处理示例：
 
-### (1) 过滤低表达基因：
+### (1) 筛选掉低表达基因：
    - 对于基因表达量文件（FPKM或TPM，必须是未经对数处理的原始文件），构建一个 P×N 的基因表达矩阵X，其中每一行代表一个基因，每一列代表一个样本。
    - 设基因表达量阈值为t，设基因中表达量大于t的样本比例阈值为r(默认为0.5)。之后对基因表达量矩阵X中的每一个基因计算基因表达指标ER(expression ration)，计算过程如下：
 <p align="center">
-  <img src="https://latex.codecogs.com/png.latex?ER%20%3D%20\frac{k}{n}" alt="ER = k/N">
+  <img src="https://latex.codecogs.com/png.latex?ER%20%3D%20\frac{k}{N}" alt="ER = k/N">
 </p>
 其中k表示该基因中表达量大于t的样本个数，N表示总的样本个数。最终保留ER≥r的基因。
 
